@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Executar TreinoLang",
+            "request": "launch",
+            "mainClass": "br.ufscar.dc.compiladores.TreinoLang.Main",
+            "args": "casosTeste/exemplos/01_treino_valido.tlang"
+        }
+    ]
+}

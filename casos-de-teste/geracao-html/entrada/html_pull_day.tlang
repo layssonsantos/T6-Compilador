@@ -1,0 +1,19 @@
+treino PullDay
+
+exercicio BarraFixa {
+    series 4
+    repeticoes 8
+    carga 0
+}
+
+exercicio RemadaCurvada {
+    series 4
+    repeticoes 10
+    carga 60
+}
+
+exercicio RoscaDireta {
+    series 3
+    repeticoes 12
+    carga 30
+}

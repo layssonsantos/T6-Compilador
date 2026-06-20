@@ -1,0 +1,19 @@
+treino Hipertrofia
+
+exercicio Supino {
+    series 4
+    repeticoes 8
+    carga 90
+}
+
+exercicio Desenvolvimento {
+    series 4
+    repeticoes 10
+    carga 40
+}
+
+exercicio TricepsPulley {
+    series 4
+    repeticoes 12
+    carga 35
+}

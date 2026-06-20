@@ -1,0 +1,7 @@
+treino PushDay
+
+exercicio Supino {
+    series 4
+    repeticoes 10
+    carga @80
+}

@@ -1,0 +1,1 @@
+Exercicio Supino: repeticoes deve ser maior que zero.

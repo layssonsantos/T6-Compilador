@@ -1,0 +1,19 @@
+treino LegDay
+
+exercicio Agachamento {
+    series 4
+    repeticoes 10
+    carga 100
+}
+
+exercicio LegPress {
+    series 4
+    repeticoes 12
+    carga 180
+}
+
+exercicio CadeiraExtensora {
+    series 3
+    repeticoes 15
+    carga 50
+}
