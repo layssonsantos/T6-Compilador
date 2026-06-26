@@ -11,11 +11,11 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
 
     private final List<String> erros = new ArrayList<>();
 
+    private final Set<String> exercicios = new HashSet<>();
+
     public List<String> getErros() {
         return erros;
     }
-
-    private final Set<String> exercicios = new HashSet<>();
 
     @Override
     public Void visitExercicio(TreinoLangParser.ExercicioContext ctx) {
@@ -46,22 +46,10 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
                             ": repeticoes deve ser maior que zero.");
         }
 
-        if (carga < 0) {
+        if (carga <= 0) {
             erros.add(
                     "Exercicio " + nome +
-                            ": carga nao pode ser negativa.");
-        }
-
-        if (series > 20) {
-            erros.add(
-                    "Exercicio " + nome +
-                            ": numero de series excede o limite permitido.");
-        }
-
-        if (repeticoes > 100) {
-            erros.add(
-                    "Exercicio " + nome +
-                            ": numero de repeticoes excede o limite permitido.");
+                            ": carga deve ser maior que zero.");
         }
 
         if (carga > 500) {
