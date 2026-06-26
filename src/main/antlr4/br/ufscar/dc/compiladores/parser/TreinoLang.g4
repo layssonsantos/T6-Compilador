@@ -6,10 +6,27 @@ program
 
 exercicio
     : 'exercicio' ID '{'
+        'objetivo' OBJETIVO
+        'grupo' GRUPO
         'series' INT
         'repeticoes' INT
         'carga' INT
       '}'
+    ;
+
+OBJETIVO
+    : 'FORCA'
+    | 'HIPERTROFIA'
+    | 'RESISTENCIA'
+    ;
+
+GRUPO
+    : 'PEITO'
+    | 'COSTAS'
+    | 'PERNAS'
+    | 'OMBROS'
+    | 'BICEPS'
+    | 'TRICEPS'
     ;
 
 ID

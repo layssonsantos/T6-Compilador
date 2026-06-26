@@ -89,8 +89,9 @@ public class Main {
                     writer.println(erro);
                 }
             } else {
-                writer.println(
-                        "Fim da compilacao.");
+                HTMLGenerator generator = new HTMLGenerator();
+
+                writer.print(generator.visit(tree));
             }
         }
     }
