@@ -1,0 +1,14 @@
+treino PushDay
+tipo PUSH
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+&
+
+// Erro léxico somente ao final do arquivo, garantindo que o lexer percorre todo o programa antes de encontrar o erro.

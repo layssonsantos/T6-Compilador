@@ -1,19 +1,26 @@
 treino PullDay
+tipo PULL
 
-exercicio BarraFixa {
-    series 4
-    repeticoes 8
-    carga 0
-}
-
-exercicio RemadaCurvada {
+exercicio PuxadaFrente {
+    objetivo HIPERTROFIA
+    grupo COSTAS
     series 4
     repeticoes 10
     carga 60
 }
 
+exercicio RemadaBaixa {
+    objetivo HIPERTROFIA
+    grupo COSTAS
+    series 4
+    repeticoes 12
+    carga 55
+}
+
 exercicio RoscaDireta {
+    objetivo HIPERTROFIA
+    grupo BICEPS
     series 3
     repeticoes 12
-    carga 30
+    carga 20
 }

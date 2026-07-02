@@ -1,0 +1,13 @@
+@
+treino PushDay
+tipo PUSH
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+// Erro léxico logo no primeiro caractere do programa.

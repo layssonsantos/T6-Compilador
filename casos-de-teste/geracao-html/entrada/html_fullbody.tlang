@@ -1,0 +1,42 @@
+treino FullBody
+tipo FULLBODY
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 3
+    repeticoes 10
+    carga 80
+}
+
+exercicio PuxadaFrente {
+    objetivo HIPERTROFIA
+    grupo COSTAS
+    series 3
+    repeticoes 10
+    carga 60
+}
+
+exercicio Agachamento {
+    objetivo FORCA
+    grupo PERNAS
+    series 5
+    repeticoes 5
+    carga 150
+}
+
+exercicio Desenvolvimento {
+    objetivo HIPERTROFIA
+    grupo OMBROS
+    series 3
+    repeticoes 12
+    carga 30
+}
+
+exercicio RoscaDireta {
+    objetivo HIPERTROFIA
+    grupo BICEPS
+    series 3
+    repeticoes 12
+    carga 20
+}

@@ -1,0 +1,11 @@
+treino PushDay
+tipo PUSH
+
+exercicio Supino {
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+// Todo exercício deve iniciar com o campo obrigatório objetivo.

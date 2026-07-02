@@ -1,0 +1,11 @@
+treino PushDay
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+// O programa deve conter a declaração tipo após treino.

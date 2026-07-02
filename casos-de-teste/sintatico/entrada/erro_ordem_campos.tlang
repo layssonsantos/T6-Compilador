@@ -1,0 +1,12 @@
+treino PushDay
+tipo PUSH
+
+exercicio Supino {
+    grupo PEITO
+    objetivo HIPERTROFIA
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+// Os campos do exercício devem seguir a ordem definida na gramática.

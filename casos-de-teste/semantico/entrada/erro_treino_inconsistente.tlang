@@ -1,0 +1,28 @@
+treino PushABC
+tipo PUSH
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+exercicio Agachamento {
+    objetivo HIPERTROFIA
+    grupo PERNAS
+    series 4
+    repeticoes 10
+    carga 100
+}
+
+exercicio Desenvolvimento {
+    objetivo HIPERTROFIA
+    grupo OMBROS
+    series 4
+    repeticoes 10
+    carga 40
+}
+
+// Analisa a consistência global do treino, verificando se o tipo de treino (PUSH, PULL, LEGS ou FULLBODY) é compatível com os grupos musculares utilizados pelos exercícios declarados.

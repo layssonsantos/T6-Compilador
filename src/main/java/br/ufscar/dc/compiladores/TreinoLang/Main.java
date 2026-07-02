@@ -12,7 +12,7 @@ import br.ufscar.dc.compiladores.parser.TreinoLangParser;
 
 public class Main {
 
-    private static final List<String> errosLexSint = new ArrayList<>();
+    private static final List<String> errosSintaticos = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
 
@@ -27,32 +27,44 @@ public class Main {
 
         CharStream input = CharStreams.fromFileName(arquivoEntrada);
 
+        // =====================================================
+        // ANÁLISE LÉXICA
+        // =====================================================
+
         TreinoLangLexer lexer = new TreinoLangLexer(input);
 
-        lexer.removeErrorListeners();
-        lexer.addErrorListener(new BaseErrorListener() {
-            @Override
-            public void syntaxError(
-                    Recognizer<?, ?> recognizer,
-                    Object offendingSymbol,
-                    int line,
-                    int charPositionInLine,
-                    String msg,
-                    RecognitionException e) {
-
-                errosLexSint.add(
-                        "Linha " + line +
-                                ": erro lexico proximo a " +
-                                offendingSymbol);
-            }
-        });
-
         CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+        // força o lexer a gerar todos os tokens
+        tokens.fill();
+
+        for (Token token : tokens.getTokens()) {
+
+            if (token.getType() == TreinoLangLexer.ERROR_CHAR) {
+
+                try (PrintWriter writer = new PrintWriter(arquivoSaida)) {
+
+                    writer.println(
+                            "Linha "
+                                    + token.getLine()
+                                    + ": erro lexico proximo a "
+                                    + token.getText());
+                }
+
+                return;
+            }
+        }
+
+        // =====================================================
+        // ANÁLISE SINTÁTICA
+        // =====================================================
 
         TreinoLangParser parser = new TreinoLangParser(tokens);
 
         parser.removeErrorListeners();
+
         parser.addErrorListener(new BaseErrorListener() {
+
             @Override
             public void syntaxError(
                     Recognizer<?, ?> recognizer,
@@ -62,37 +74,52 @@ public class Main {
                     String msg,
                     RecognitionException e) {
 
-                errosLexSint.add(
-                        "Linha " + line +
-                                ": erro sintatico proximo a " +
-                                ((Token) offendingSymbol).getText());
+                errosSintaticos.add(
+                        "Linha "
+                                + line
+                                + ": erro sintatico proximo a "
+                                + ((Token) offendingSymbol).getText());
             }
+
         });
 
         ParseTree tree = parser.program();
 
         try (PrintWriter writer = new PrintWriter(arquivoSaida)) {
 
-            if (!errosLexSint.isEmpty()) {
-                for (String erro : errosLexSint) {
+            if (!errosSintaticos.isEmpty()) {
+
+                for (String erro : errosSintaticos) {
                     writer.println(erro);
                 }
+
                 return;
             }
+
+            // =====================================================
+            // ANÁLISE SEMÂNTICA
+            // =====================================================
 
             SemanticAnalyzer semantico = new SemanticAnalyzer();
 
             semantico.visit(tree);
 
             if (!semantico.getErros().isEmpty()) {
+
                 for (String erro : semantico.getErros()) {
                     writer.println(erro);
                 }
-            } else {
-                HTMLGenerator generator = new HTMLGenerator();
 
-                writer.print(generator.visit(tree));
+                return;
             }
+
+            // =====================================================
+            // GERAÇÃO DE HTML
+            // =====================================================
+
+            HTMLGenerator generator = new HTMLGenerator();
+
+            writer.print(generator.visit(tree));
         }
     }
 }

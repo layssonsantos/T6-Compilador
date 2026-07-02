@@ -6,86 +6,164 @@ import java.util.Map;
 
 public class TabelaExercicios {
 
-    private final Map<String, ExercicioInfo> tabela = new HashMap<>();
+        private final Map<String, ExercicioInfo> tabela = new HashMap<>();
 
-    public TabelaExercicios() {
+        public TabelaExercicios() {
 
-        tabela.put(
-                "Supino",
-                new ExercicioInfo(
-                        GrupoMuscular.PEITO,
-                        EnumSet.of(
+                // =====================
+                // PEITO
+                // =====================
+
+                adicionar(
+                                "Supino",
+                                GrupoMuscular.PEITO,
                                 Objetivo.FORCA,
-                                Objetivo.HIPERTROFIA)));
+                                Objetivo.HIPERTROFIA);
 
-        tabela.put(
-                "Crucifixo",
-                new ExercicioInfo(
-                        GrupoMuscular.PEITO,
-                        EnumSet.of(
-                                Objetivo.HIPERTROFIA)));
+                adicionar(
+                                "SupinoInclinado",
+                                GrupoMuscular.PEITO,
+                                Objetivo.HIPERTROFIA);
 
-        tabela.put(
-                "Remada",
-                new ExercicioInfo(
-                        GrupoMuscular.COSTAS,
-                        EnumSet.of(
+                adicionar(
+                                "Crucifixo",
+                                GrupoMuscular.PEITO,
+                                Objetivo.HIPERTROFIA);
+
+                // =====================
+                // COSTAS
+                // =====================
+
+                adicionar(
+                                "Remada",
+                                GrupoMuscular.COSTAS,
                                 Objetivo.FORCA,
-                                Objetivo.HIPERTROFIA)));
+                                Objetivo.HIPERTROFIA);
 
-        tabela.put(
-                "Puxada",
-                new ExercicioInfo(
-                        GrupoMuscular.COSTAS,
-                        EnumSet.of(
-                                Objetivo.RESISTENCIA,
-                                Objetivo.HIPERTROFIA)));
+                adicionar(
+                                "RemadaBaixa",
+                                GrupoMuscular.COSTAS,
+                                Objetivo.HIPERTROFIA);
 
-        tabela.put(
-                "Agachamento",
-                new ExercicioInfo(
-                        GrupoMuscular.PERNAS,
-                        EnumSet.of(
+                adicionar(
+                                "RemadaCurvada",
+                                GrupoMuscular.COSTAS,
                                 Objetivo.FORCA,
-                                Objetivo.HIPERTROFIA)));
+                                Objetivo.HIPERTROFIA);
 
-        tabela.put(
-                "LegPress",
-                new ExercicioInfo(
-                        GrupoMuscular.PERNAS,
-                        EnumSet.of(
-                                Objetivo.HIPERTROFIA)));
-
-        tabela.put(
-                "Desenvolvimento",
-                new ExercicioInfo(
-                        GrupoMuscular.OMBROS,
-                        EnumSet.of(
-                                Objetivo.FORCA,
-                                Objetivo.HIPERTROFIA)));
-
-        tabela.put(
-                "RoscaDireta",
-                new ExercicioInfo(
-                        GrupoMuscular.BICEPS,
-                        EnumSet.of(
-                                Objetivo.HIPERTROFIA)));
-
-        tabela.put(
-                "TricepsPulley",
-                new ExercicioInfo(
-                        GrupoMuscular.TRICEPS,
-                        EnumSet.of(
+                adicionar(
+                                "Puxada",
+                                GrupoMuscular.COSTAS,
                                 Objetivo.HIPERTROFIA,
-                                Objetivo.RESISTENCIA)));
-    }
+                                Objetivo.RESISTENCIA);
 
-    public boolean existe(String nome) {
-        return tabela.containsKey(nome);
-    }
+                adicionar(
+                                "PuxadaFrente",
+                                GrupoMuscular.COSTAS,
+                                Objetivo.HIPERTROFIA,
+                                Objetivo.RESISTENCIA);
 
-    public ExercicioInfo get(String nome) {
-        return tabela.get(nome);
-    }
+                // =====================
+                // PERNAS
+                // =====================
 
+                adicionar(
+                                "Agachamento",
+                                GrupoMuscular.PERNAS,
+                                Objetivo.FORCA,
+                                Objetivo.HIPERTROFIA);
+
+                adicionar(
+                                "LegPress",
+                                GrupoMuscular.PERNAS,
+                                Objetivo.HIPERTROFIA);
+
+                adicionar(
+                                "MesaFlexora",
+                                GrupoMuscular.PERNAS,
+                                Objetivo.HIPERTROFIA);
+
+                adicionar(
+                                "CadeiraExtensora",
+                                GrupoMuscular.PERNAS,
+                                Objetivo.HIPERTROFIA,
+                                Objetivo.RESISTENCIA);
+
+                adicionar(
+                                "Stiff",
+                                GrupoMuscular.PERNAS,
+                                Objetivo.FORCA,
+                                Objetivo.HIPERTROFIA);
+
+                // =====================
+                // OMBROS
+                // =====================
+
+                adicionar(
+                                "Desenvolvimento",
+                                GrupoMuscular.OMBROS,
+                                Objetivo.FORCA,
+                                Objetivo.HIPERTROFIA);
+
+                adicionar(
+                                "ElevacaoLateral",
+                                GrupoMuscular.OMBROS,
+                                Objetivo.HIPERTROFIA);
+
+                // =====================
+                // BÍCEPS
+                // =====================
+
+                adicionar(
+                                "RoscaDireta",
+                                GrupoMuscular.BICEPS,
+                                Objetivo.FORCA,
+                                Objetivo.HIPERTROFIA);
+
+                adicionar(
+                                "RoscaMartelo",
+                                GrupoMuscular.BICEPS,
+                                Objetivo.HIPERTROFIA);
+
+                // =====================
+                // TRÍCEPS
+                // =====================
+
+                adicionar(
+                                "TricepsPulley",
+                                GrupoMuscular.TRICEPS,
+                                Objetivo.HIPERTROFIA,
+                                Objetivo.RESISTENCIA);
+
+                adicionar(
+                                "TricepsFrances",
+                                GrupoMuscular.TRICEPS,
+                                Objetivo.HIPERTROFIA);
+
+                adicionar(
+                                "Mergulho",
+                                GrupoMuscular.TRICEPS,
+                                Objetivo.FORCA,
+                                Objetivo.HIPERTROFIA);
+        }
+
+        private void adicionar(
+                        String nome,
+                        GrupoMuscular grupo,
+                        Objetivo... objetivos) {
+
+                tabela.put(
+                                nome,
+                                new ExercicioInfo(
+                                                grupo,
+                                                EnumSet.of(objetivos[0], objetivos)));
+        }
+
+        public boolean existe(String nome) {
+                return tabela.containsKey(nome);
+        }
+
+        public ExercicioInfo get(String nome) {
+                return tabela.get(nome);
+        }
 }

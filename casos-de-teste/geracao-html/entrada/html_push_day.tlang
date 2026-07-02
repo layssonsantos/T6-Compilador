@@ -1,13 +1,26 @@
 treino PushDay
+tipo PUSH
 
 exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
     series 4
     repeticoes 10
     carga 80
 }
 
 exercicio Desenvolvimento {
-    series 4
+    objetivo HIPERTROFIA
+    grupo OMBROS
+    series 3
     repeticoes 12
     carga 30
+}
+
+exercicio TricepsPulley {
+    objetivo HIPERTROFIA
+    grupo TRICEPS
+    series 3
+    repeticoes 12
+    carga 25
 }

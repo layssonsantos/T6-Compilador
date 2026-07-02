@@ -1,19 +1,26 @@
 treino LegDay
+tipo LEGS
 
 exercicio Agachamento {
-    series 4
-    repeticoes 10
-    carga 100
+    objetivo FORCA
+    grupo PERNAS
+    series 5
+    repeticoes 5
+    carga 140
 }
 
 exercicio LegPress {
+    objetivo HIPERTROFIA
+    grupo PERNAS
     series 4
-    repeticoes 12
-    carga 180
+    repeticoes 10
+    carga 220
 }
 
-exercicio CadeiraExtensora {
+exercicio MesaFlexora {
+    objetivo HIPERTROFIA
+    grupo PERNAS
     series 3
-    repeticoes 15
-    carga 50
+    repeticoes 12
+    carga 45
 }

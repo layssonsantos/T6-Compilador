@@ -1,0 +1,20 @@
+treino TreinoTeste
+tipo FULLBODY
+
+exercicio Supino {
+    objetivo RESISTENCIA
+    grupo COSTAS
+    series 4
+    repeticoes 8
+    carga 80
+}
+
+exercicio Supino {
+    objetivo RESISTENCIA
+    grupo COSTAS
+    series 4
+    repeticoes 8
+    carga 80
+}
+
+// Verifica a consistência da definição do exercício, incluindo duplicidade de nomes, compatibilidade entre exercício e grupo muscular, compatibilidade entre exercício e objetivo, além da coerência entre objetivo e faixa de repetições.

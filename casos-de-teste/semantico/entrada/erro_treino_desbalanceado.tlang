@@ -1,0 +1,28 @@
+treino Full
+tipo FULLBODY
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 1
+    repeticoes 10
+    carga 5
+}
+
+exercicio Crucifixo {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 1
+    repeticoes 10
+    carga 5
+}
+
+exercicio RoscaDireta {
+    objetivo HIPERTROFIA
+    grupo BICEPS
+    series 1
+    repeticoes 10
+    carga 5
+}
+
+// Realiza verificações globais sobre o treino completo, detectando desbalanceamento entre grupos musculares e validando se o volume total do treino é compatível com o tipo de treino definido (PUSH, PULL, LEGS ou FULLBODY).

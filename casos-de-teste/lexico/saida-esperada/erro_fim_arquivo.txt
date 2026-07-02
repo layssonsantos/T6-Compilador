@@ -1,0 +1,1 @@
+Linha 12: erro lexico proximo a &

@@ -1,0 +1,12 @@
+treino Push@Day
+tipo PUSH
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+// Caractere inválido inserido no meio de um identificador (ID).

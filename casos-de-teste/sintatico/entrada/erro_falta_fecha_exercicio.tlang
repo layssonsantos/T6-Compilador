@@ -1,0 +1,11 @@
+treino PushDay
+tipo PUSH
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+
+// Todo bloco de exercício deve ser fechado com } antes do fim do arquivo.

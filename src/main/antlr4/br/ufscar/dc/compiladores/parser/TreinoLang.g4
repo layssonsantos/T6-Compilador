@@ -1,7 +1,17 @@
 grammar TreinoLang;
 
 program
-    : 'treino' ID exercicio+ EOF
+    : 'treino' ID
+      'tipo' TIPO_TREINO
+      exercicio+
+      EOF
+    ;
+
+TIPO_TREINO
+    : 'PUSH'
+    | 'PULL'
+    | 'LEGS'
+    | 'FULLBODY'
     ;
 
 exercicio
@@ -39,4 +49,13 @@ INT
 
 WS
     : [ \t\r\n]+ -> skip
+    ;
+
+COMMENT
+    : '//' ~[\r\n]* -> skip
+    ;
+
+// Sempre a última regra
+ERROR_CHAR
+    : .
     ;

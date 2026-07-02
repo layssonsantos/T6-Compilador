@@ -1,0 +1,12 @@
+treino PushDay
+tipo PUSH
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes #
+    carga 80
+}
+
+// Erro léxico dentro da definição de um exercício, após diversos tokens válidos.

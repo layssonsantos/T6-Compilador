@@ -1,1 +1,0 @@
-Exercicio Supino: series deve ser maior que zero.

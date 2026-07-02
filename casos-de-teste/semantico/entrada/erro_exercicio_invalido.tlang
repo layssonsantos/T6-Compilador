@@ -1,0 +1,12 @@
+treino TreinoTeste
+tipo FULLBODY
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 0
+    repeticoes 10
+    carga 600
+}
+
+// Valida restrições locais do exercício, verificando se os valores de séries, repetições e carga estão dentro dos limites permitidos pela linguagem.

@@ -1,0 +1,8 @@
+Exercicio Supino nao pertence ao grupo COSTAS.
+Exercicio Supino nao e recomendado para RESISTENCIA.
+Exercicio Supino: repeticoes incompatíveis com RESISTENCIA.
+Exercicio Supino ja declarado.
+Exercicio Supino nao pertence ao grupo COSTAS.
+Exercicio Supino nao e recomendado para RESISTENCIA.
+Exercicio Supino: repeticoes incompatíveis com RESISTENCIA.
+Treino FULLBODY possui volume muito baixo.
