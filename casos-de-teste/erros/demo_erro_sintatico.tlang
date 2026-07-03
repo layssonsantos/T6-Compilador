@@ -1,0 +1,11 @@
+treino DemoSintatico
+tipo PUSH
+
+exercicio Supino {
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga 80
+}
+
+// O campo objetivo foi omitido.

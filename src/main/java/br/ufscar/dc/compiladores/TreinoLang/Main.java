@@ -1,3 +1,10 @@
+/**
+ *
+ * @author Laysson Santos da Silva - 800349
+ * 
+ * TreinoLang - Compilador para Descrição de Treinos de Musculação
+ */
+
 package br.ufscar.dc.compiladores.TreinoLang;
 
 import java.io.PrintWriter;
@@ -12,6 +19,7 @@ import br.ufscar.dc.compiladores.parser.TreinoLangParser;
 
 public class Main {
 
+    // Acumula erros de análise sintática detectados pelo parser.
     private static final List<String> errosSintaticos = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
@@ -35,7 +43,7 @@ public class Main {
 
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-        // força o lexer a gerar todos os tokens
+        // força o lexer a gerar todos os tokens para detectar erros léxicos cedo.
         tokens.fill();
 
         for (Token token : tokens.getTokens()) {
@@ -61,6 +69,7 @@ public class Main {
 
         TreinoLangParser parser = new TreinoLangParser(tokens);
 
+        // Remove o listener padrão para usar mensagem de erro customizada.
         parser.removeErrorListeners();
 
         parser.addErrorListener(new BaseErrorListener() {
@@ -83,6 +92,7 @@ public class Main {
 
         });
 
+        // Inicia o parser a partir da regra inicial "program".
         ParseTree tree = parser.program();
 
         try (PrintWriter writer = new PrintWriter(arquivoSaida)) {
@@ -102,6 +112,7 @@ public class Main {
 
             SemanticAnalyzer semantico = new SemanticAnalyzer();
 
+            // Visita a árvore de análise para coletar erros semânticos.
             semantico.visit(tree);
 
             if (!semantico.getErros().isEmpty()) {
@@ -119,6 +130,7 @@ public class Main {
 
             HTMLGenerator generator = new HTMLGenerator();
 
+            // Converte a árvore de programa em saída HTML final.
             writer.print(generator.visit(tree));
         }
     }

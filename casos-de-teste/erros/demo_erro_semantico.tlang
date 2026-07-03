@@ -1,0 +1,12 @@
+treino DemoSemantico
+tipo PUSH
+
+exercicio Agachamento {
+    objetivo HIPERTROFIA
+    grupo PERNAS
+    series 4
+    repeticoes 10
+    carga 100
+}
+
+// Um treino PUSH não pode conter exercícios do grupo PERNAS.

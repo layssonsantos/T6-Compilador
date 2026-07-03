@@ -4,11 +4,15 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
+// Mantém um cadastro fixo de exercícios válidos para o compilador.
 public class TabelaExercicios {
 
+        // Mapeia nome de exercício para suas informações de grupo e objetivos.
         private final Map<String, ExercicioInfo> tabela = new HashMap<>();
 
         public TabelaExercicios() {
+
+                // Inicializa a tabela com os exercícios suportados.
 
                 // =====================
                 // PEITO
@@ -147,6 +151,7 @@ public class TabelaExercicios {
                                 Objetivo.HIPERTROFIA);
         }
 
+        // Adiciona um exercício à tabela, criando um conjunto de objetivos.
         private void adicionar(
                         String nome,
                         GrupoMuscular grupo,
@@ -159,10 +164,12 @@ public class TabelaExercicios {
                                                 EnumSet.of(objetivos[0], objetivos)));
         }
 
+        // Verifica se o exercício existe na tabela.
         public boolean existe(String nome) {
                 return tabela.containsKey(nome);
         }
 
+        // Retorna as informações do exercício, ou null se não existir.
         public ExercicioInfo get(String nome) {
                 return tabela.get(nome);
         }

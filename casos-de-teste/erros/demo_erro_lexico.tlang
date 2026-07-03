@@ -1,0 +1,12 @@
+treino DemoLexico
+tipo PUSH
+
+exercicio Supino {
+    objetivo HIPERTROFIA
+    grupo PEITO
+    series 4
+    repeticoes 10
+    carga #
+}
+
+// O caractere # não pertence ao alfabeto da linguagem.

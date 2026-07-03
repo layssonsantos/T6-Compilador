@@ -1,3 +1,4 @@
 Exercicio Supino: series deve ser maior que zero.
 Exercicio Supino: carga excede o limite permitido.
+Treino FULLBODY esta desbalanceado.
 Treino FULLBODY possui volume muito baixo.

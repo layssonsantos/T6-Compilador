@@ -76,6 +76,8 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
                         erros.add(
                                         "Exercicio " + nome +
                                                         " ja declarado.");
+
+                        return null;
                 }
 
                 // --------------------------
@@ -252,15 +254,46 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
                 // 2) Balanceamento
                 // ---------------------------------------
 
-                for (Map.Entry<GrupoMuscular, Integer> entry : quantidadePorGrupo.entrySet()) {
+                switch (tipoTreino) {
 
-                        if (entry.getValue() > 3) {
+                        case "PUSH":
 
-                                erros.add(
-                                                "Grupo "
-                                                                + entry.getKey()
-                                                                + " possui exercicios em excesso.");
-                        }
+                                if (!quantidadePorGrupo.containsKey(GrupoMuscular.PEITO)
+                                                || !quantidadePorGrupo.containsKey(GrupoMuscular.OMBROS)
+                                                || !quantidadePorGrupo.containsKey(GrupoMuscular.TRICEPS)) {
+
+                                        erros.add("Treino PUSH esta desbalanceado.");
+                                }
+
+                                break;
+
+                        case "PULL":
+
+                                if (!quantidadePorGrupo.containsKey(GrupoMuscular.COSTAS)
+                                                || !quantidadePorGrupo.containsKey(GrupoMuscular.BICEPS)) {
+
+                                        erros.add("Treino PULL esta desbalanceado.");
+                                }
+
+                                break;
+
+                        case "LEGS":
+
+                                if (!quantidadePorGrupo.containsKey(GrupoMuscular.PERNAS)) {
+
+                                        erros.add("Treino LEGS esta desbalanceado.");
+                                }
+
+                                break;
+
+                        case "FULLBODY":
+
+                                if (quantidadePorGrupo.size() < 3) {
+
+                                        erros.add("Treino FULLBODY esta desbalanceado.");
+                                }
+
+                                break;
                 }
 
                 // ---------------------------------------
