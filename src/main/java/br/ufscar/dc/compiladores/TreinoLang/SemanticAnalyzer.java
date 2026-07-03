@@ -11,18 +11,24 @@ import br.ufscar.dc.compiladores.parser.*;
 
 public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
 
+        // Acumula erros de validação encontrados no programa
         private final List<String> erros = new ArrayList<>();
 
+        // Controla declarações duplicadas de exercício
         private final Set<String> exerciciosDeclarados = new HashSet<>();
 
+        // Base de dados de exercícios conhecidos e suas regras
         private final TabelaExercicios tabela = new TabelaExercicios();
 
         // ===== Informações coletadas durante a visita =====
 
+        // Grupos musculares usados no treino atual
         private final Set<GrupoMuscular> gruposTreino = new HashSet<>();
 
+        // Volume total do treino calculado por exercício
         private int volumeTreino = 0;
 
+        // Quantidade de exercícios por grupo muscular
         private final Map<GrupoMuscular, Integer> quantidadePorGrupo = new EnumMap<>(GrupoMuscular.class);
 
         public List<String> getErros() {
@@ -32,6 +38,7 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
         @Override
         public Void visitExercicio(TreinoLangParser.ExercicioContext ctx) {
 
+                // Dados extraídos do contexto do exercício
                 String nome = ctx.ID().getText();
 
                 GrupoMuscular grupo = GrupoMuscular.fromString(
@@ -48,7 +55,7 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
 
                 volumeTreino += series * repeticoes * carga;
 
-                // Guarda informações para análise global
+                // Guarda informações para análise global do treino
                 gruposTreino.add(grupo);
 
                 quantidadePorGrupo.merge(grupo, 1, Integer::sum);
@@ -190,6 +197,7 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
         @Override
         public Void visitProgram(TreinoLangParser.ProgramContext ctx) {
 
+                // Visita todos os exercícios antes de validar regras globais
                 visitChildren(ctx);
 
                 String tipoTreino = ctx.TIPO_TREINO().getText();
@@ -251,7 +259,7 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
                 }
 
                 // ---------------------------------------
-                // 2) Balanceamento
+                // 2) Balanceamento do treino por grupo muscular
                 // ---------------------------------------
 
                 switch (tipoTreino) {
@@ -297,7 +305,7 @@ public class SemanticAnalyzer extends TreinoLangBaseVisitor<Void> {
                 }
 
                 // ---------------------------------------
-                // 3) Volume total do treino
+                // 3) Volume total do treino (séries x repetições x carga)
                 // ---------------------------------------
 
                 switch (tipoTreino) {
